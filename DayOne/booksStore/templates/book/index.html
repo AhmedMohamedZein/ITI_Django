@@ -1,0 +1,40 @@
+{% extends 'layout/app.html' %}
+    
+
+{% block title %}
+    Books 
+{% endblock %}
+
+
+{% block main-content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                            <tr>
+                                <td>{{ book.id }}</td>
+                                <td>{{ book.title }}</td>
+                                <td>{{ book.description }}</td>
+                                <td>
+                                    <a class="btn btn-info" href="{% url 'book:show' book.id %}">View</a>
+                                    <a class="btn btn-success" href="{% url 'book:update' book.id %}">Edit</a>
+                                    <a class="btn btn-danger" href="{% url 'book:destroy' book.id %}">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

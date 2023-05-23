@@ -1,0 +1,19 @@
+{% extends 'layout/app.html' %}
+    
+
+{% block title %}
+    Book {{book.id}}
+{% endblock %}
+
+
+{% block main-content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <li>{{book.id}}</li>
+                <li>{{ book.title }}</li>
+                <li>{{ book.description }}</li>
+            </div>
+        </div>
+    </div>
+{% endblock %}
